@@ -14,5 +14,6 @@ namespace WebApiTest2.Models
         public ICollection<SizeOFProduct> sizeOFProducts { get; set; }
         public ICollection<Cart> carts { get; set; }
         public ICollection<Single_Order> Single_Orders { get; set; }
+        public ICollection<CategorySize> categorySizes { get; set; }
     }
 }

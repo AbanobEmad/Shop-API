@@ -1,0 +1,111 @@
+﻿@using WebApiTest2.Models
+@model DataProduct
+@{
+    ViewBag.Title = "AddProduct";
+    SelectList sellers = new SelectList(ViewBag.Seller, "ID", "Name");
+    SelectList Cates = new SelectList(ViewBag.Cate, "ID", "Category_Name_AR");
+}
+
+<h2>AddProduct</h2>
+@using (Html.BeginForm("AddProduct", "ProductView", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <div style="display: inline-block;float: left;width: 500px;padding: 10px">
+            <div class="form-group">
+                @Html.LabelFor(P => P.Name)
+                @Html.EditorFor(P => P.Name, new { htmlAttributes = new { @class = "form-control" } })
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(P => P.Description)
+                @Html.EditorFor(P => P.Description, new { htmlAttributes = new { @class = "form-control", @style = "width: 350px; height:150px" } })
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(P => P.Seller_ID)
+                @Html.DropDownListFor(P => P.Seller_ID, sellers, new { @class = "form-control" })
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(P => P.Category_ID)
+                @Html.DropDownListFor(P => P.Category_ID, Cates, new { @class = "form-control" })
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+        <div>
+            <div class="form-group">
+                @Html.LabelFor(P => P.Price)
+                @Html.EditorFor(P => P.Price, new { htmlAttributes = new { @class = "form-control" } })
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(P => P.Discount)
+                @Html.EditorFor(P => P.Discount, new { htmlAttributes = new { @class = "form-control" } })
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(P => P.percent)
+                @Html.EditorFor(P => P.percent, new { htmlAttributes = new { @class = "form-control" } })
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(P => P.Shipping)
+                @Html.EditorFor(P => P.Shipping, new { htmlAttributes = new { @class = "form-control" } })
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.CheckBoxFor(P => P.Offer)
+                @Html.Label("The product is offer / المنتج عليه عرض ")
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.CheckBoxFor(P => P.Approval)
+                @Html.Label("Approval the product / عرض المنتج")
+                <p></p>
+                <p></p>
+            </div>
+            <div class="form-group">
+                @Html.CheckBoxFor(P => P.Show_Home)
+                @Html.Label("Appear The product in Home Page / عرض المنتج فى الصفحة الرئيسية")
+                <p></p>
+                <p></p>
+            </div>
+            <div>
+                <p><input type="file" accept="image/*" name="Files" id="file" onchange="loadFile(event)" multiple></p>
+                <img id="output1" width="200" height="200" />
+                <img id="output2" width="200" height="200" />
+                <img id="output3" width="200" height="200" />
+                <img id="output4" width="200" height="200" />
+                <img id="output5" width="200" height="200" />
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" value="Create" class="btn btn-success" />
+}
+<script>
+    var loadFile = function (event) {
+    var image = document.getElementById('output1');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        var image = document.getElementById('output2');
+        image.src = URL.createObjectURL(event.target.files[1]);
+        var image = document.getElementById('output3');
+        image.src = URL.createObjectURL(event.target.files[2]);
+        var image = document.getElementById('output4');
+        image.src = URL.createObjectURL(event.target.files[3]);
+        var image = document.getElementById('output5');
+        image.src = URL.createObjectURL(event.target.files[4]);
+
+};
+</script>

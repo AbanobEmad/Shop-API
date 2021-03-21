@@ -1,0 +1,39 @@
+﻿@using WebApiTest2.Models
+@model Seller
+@{
+    ViewBag.Title = "AddSeller";
+}
+
+<h2>AddSeller</h2>
+
+@using (Html.BeginForm("AddSeller", "SellerView", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(C => C.Name)
+        @Html.TextBoxFor(C => C.Name, new { @class = "form-control" })
+        <p></p>
+        <p></p>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(C => C.Address)
+        @Html.TextBoxFor(C => C.Address, new { @class = "form-control" })
+        <p></p>
+        <p></p>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(C => C.Phone1)
+        @Html.TextBoxFor(C => C.Phone1, new { @class = "form-control" })
+        <p></p>
+        <p></p>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(C => C.Phone2)
+        @Html.TextBoxFor(C => C.Phone2, new { @class = "form-control" })
+        <p></p>
+        <p></p>
+    </div>
+
+    <input type="submit" value="Create" class="btn btn-success" />
+}

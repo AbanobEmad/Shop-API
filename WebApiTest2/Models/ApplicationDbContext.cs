@@ -28,5 +28,7 @@ namespace WebApiTest2.Models
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Single_Order> Single_Orders { get; set; }
+        public virtual DbSet<CategorySize> CategorySizes { get; set; }
+        public virtual DbSet<Seller> Sellers { get; set; }
     }
 }

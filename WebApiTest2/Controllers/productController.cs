@@ -29,7 +29,7 @@ namespace WebApiTest2.Controllers
             }
             else
             {
-                products = db.Products.Where(C => C.Category_TD == id&&C.Approval==true).ToList();
+                products = db.Products.Where(C => C.Category_ID == id&&C.Approval==true).ToList();
             }
             List<DpProduct> DpProducts = new List<DpProduct>();
             
@@ -84,7 +84,7 @@ namespace WebApiTest2.Controllers
             product.Seller_ID = 1;// dpproduct.Seller_ID;
             product.Description = dpproduct.Description;
             product.Discount = 0;//dpproduct.Discount;
-            product.Category_TD = dpproduct.Category_TD;
+            product.Category_ID = dpproduct.Category_TD;
             product.Type_ID = 1;//dpproduct.Type_ID;
             product.Save = false;
             db.Products.Add(product);
@@ -119,7 +119,7 @@ namespace WebApiTest2.Controllers
             dpProduct.Seller_ID = product.Seller_ID;
             dpProduct.Save = save;
             dpProduct.Type_ID = product.Type_ID;
-            dpProduct.Category_TD = product.Category_TD;
+            dpProduct.Category_TD = product.Category_ID;
             dpProduct.Description = product.Description;
             dpProduct.Discount = product.Discount;
             List<Product_Image_path> product_images = db.Product_Images.Where(I => I.Product_ID == product.ID).ToList();

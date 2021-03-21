@@ -1,0 +1,64 @@
+﻿@using WebApiTest2.Models
+@model SizeOFProduct
+@{
+    ViewBag.Title = "AddSize";
+    SelectList sizes = new SelectList(ViewBag.size, "ID", "size");
+}
+<style>
+    table, td, th {
+        border: 1px solid black;
+        align-content: center;
+        padding: 10px 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aquamarine;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    tr:nth-of-type(odd) {
+        background-color: #ccc;
+    }
+</style>
+<h2>AddSize</h2>
+@using (Html.BeginForm("AddSize", "ProductView",new { id= @ViewBag.IDProduct },FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(S => S.Size_ID)
+        @Html.DropDownListFor(S => S.Size_ID, sizes, new { @class = "form-control" })
+        <p></p>
+        <p></p>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(S => S.Max_C)
+        @Html.EditorFor(S => S.Max_C, new { @class = "form-control" })
+        <p></p>
+        <p></p>
+    </div>
+    @Html.ActionLink("Save All Size", "saveSize", "ProductView", new { @class = "btn btn-success" })
+    <input type="submit" value="Save" class="btn btn-success" />
+}
+<table width="100%">
+    <tr>
+        <th class="text-center">Size</th>
+        <th class="text-center">Max Count</th>
+    </tr>
+    
+    @foreach (var item in @ViewBag.sizeName)
+    {
+        <tr>
+            <td align="center">@item.Name</td>
+            <td align="center">@item.MaxCount</td>
+
+        </tr>
+    }
+
+</table>

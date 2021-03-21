@@ -1,0 +1,25 @@
+﻿@using WebApiTest2.Models
+@model SizeName
+@{
+    ViewBag.Title = "Size_Edit";
+}
+
+<h2>Size_Edit</h2>
+
+<form action="/ProductView/Save_Edit_Size/@Model.id" method="get">
+    <div style="display: inline-block;float: left;width: 500px;padding: 10px">
+        <div class="form-group">
+            @Html.LabelFor(S => S.Name)
+            @Html.EditorFor(S => S.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            <p></p>
+            <p></p>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(S => S.MaxCount)
+            @Html.EditorFor(S => S.MaxCount, new { htmlAttributes = new { @class = "form-control" } })
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+    <input type="submit" value="Save Edit" class="btn btn-success" />
+</form>

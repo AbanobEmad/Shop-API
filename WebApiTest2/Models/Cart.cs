@@ -7,6 +7,7 @@ using System.Web;
 
 namespace WebApiTest2.Models
 {
+    [Table("Cart")]
     public class Cart
     {
         public int ID { get; set; }

@@ -1,0 +1,45 @@
+﻿@using WebApiTest2.Models
+@model List<Seller>
+@{
+    ViewBag.Title = "Show";
+}
+<style>
+    table, td, th {
+        border: 1px solid black;
+        align-content: center;
+        padding: 10px 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aquamarine;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    tr:nth-of-type(odd) {
+        background-color: #ccc;
+    }
+</style>
+<h2>Show</h2>
+<table width="100%">
+    <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Address</th>
+        <th class="text-center">Phone1</th>
+        <th class="text-center">Phone2</thclass="text-center">
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td align="center">@Html.DisplayFor(modelItem => item.Name)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Address)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Phone1)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Phone2)</td>
+        </tr>
+    }
+</table>

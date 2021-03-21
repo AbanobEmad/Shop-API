@@ -1,0 +1,57 @@
+﻿@using WebApiTest2.Models
+@model List<Category>
+@{
+    ViewBag.Title = "ShowCategory";
+}
+
+<h2>ShowCategory</h2>
+<style>
+    table, td, th {
+        border: 1px solid black;
+        align-content: center;
+        padding: 10px 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aquamarine;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    tr:nth-of-type(odd) {
+        background-color: #ccc;
+    }
+</style>
+<table>
+    <tr>
+        <th class="text-center">Name_Arabic</th>
+        <th class="text-center">Name_English</th>
+        <th class="text-center">Show in Home Page</th>
+        <th class="text-center">Photo</th>
+        <th class="text-center">Edite</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td align="center">@Html.DisplayFor(modelItem => item.Category_Name_AR)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Category_Name_EN)</td>
+             @if (item.Show_Home == true)
+            {
+                <td align="center" style="color:green">True</td>
+            }
+            else
+            {
+                <td align="center" style="color:red">False</td>
+            }
+            <td align="center"><img src="@item.Category_Image_Path" height="60px" width="60px"/></td>
+            <td align="center"><button>@Html.ActionLink("Edite", "ShowSingleCate", new { id = item.ID })</button></td>
+
+        </tr>
+    }
+</table>

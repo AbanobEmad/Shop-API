@@ -13,6 +13,6 @@ namespace WebApiTest2.Models
         public string S_EN { get; set; }
         public float S { get; set; }
         public double PA { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
     }
 }

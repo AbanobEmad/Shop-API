@@ -1,0 +1,58 @@
+﻿@using WebApiTest2.Models
+@model List<DataSingleOrder>
+@{
+    ViewBag.Title = "ShowoneOrder";
+}
+<style>
+    table, td, th {
+        border: 1px solid black;
+        align-content: center;
+        padding: 10px 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aquamarine;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    tr:nth-of-type(odd) {
+        background-color: #ccc;
+    }
+</style>
+<h2>ShowoneOrder</h2>
+<table width="100%">
+    <tr>
+        <th class="text-center">Product Name</th>
+        <th class="text-center">Product Desctiption</th>
+        <th class="text-center">Size</th>
+        <th class="text-center">Count</th>
+        <th class="text-center">Seller Name</th>
+        <th class="text-center">Seller Phone</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td align="center">@Html.DisplayFor(modelItem => item.Product_Name)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Product_Description)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Size_Name)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Count)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Seller_Name)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Seller_Phone)</td>
+        </tr>
+    }
+</table>
+@if (@ViewBag.State == "not answered")
+{
+    <button>@Html.ActionLink("Send the order", "SendOrder", new { id = @ViewBag.id })</button>
+}
+else if (@ViewBag.State == "in way")
+{
+    <button>@Html.ActionLink("Done Order", "ArrevdedOrder", new { id = @ViewBag.id })</button>
+}
+

@@ -1,0 +1,70 @@
+﻿@using WebApiTest2.Models
+@model List<Data_Show_Product>
+@{
+    ViewBag.Title = "ShowProduct";
+}
+
+
+
+<style>
+    table, td, th {
+        border: 1px solid black;
+        align-content: center;
+        padding: 10px 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aquamarine;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    tr:nth-of-type(odd) {
+        background-color: #ccc;
+    }
+</style>
+
+<table width="100%">
+    <tr>
+        <th class="text-center">Product Name</th>
+        <th class="text-center">Product Desctiption</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Offer</th>
+        <th class="text-center">Approval</th>
+        <th class="text-center">Image</th>
+        <th class="text-center">Details</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td align="center">@Html.DisplayFor(modelItem => item.Name)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Description)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Price)</td>
+            @if (item.Offer == true)
+            {
+                <td align="center" style="color:green">True</td>
+            }
+            else
+            {
+                <td align="center" style="color:red">False</td>
+            }
+            @if (item.Approval == true)
+            {
+                <td align="center" style="color:green">True</td>
+            }
+            else
+            {
+                <td align="center" style="color:red">False</td>
+            }
+            <td align="center"><img src="@item.LinkIamge[0]" height="60px" width="60px" /></td>
+            <td><button>@Html.ActionLink("Details", "ShowSingleProduct",new { id=item.ID})</button></td>
+
+        </tr>
+    }
+
+</table>

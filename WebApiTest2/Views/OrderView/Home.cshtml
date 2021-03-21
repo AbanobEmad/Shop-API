@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+<div >
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Order in way", "ShowNewOrders", new { id = 1 })</li>
+        <li>@Html.ActionLink("Order is cansel", "ShowNewOrders", new { id = 2 })</li>
+        <li>@Html.ActionLink("Order is not anwser", "ShowNewOrders", new { id = 3 })</li>
+        <li>@Html.ActionLink("Order is send", "ShowNewOrders", new { id = 4 })</li>
+
+    </ul>
+</div>

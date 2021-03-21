@@ -18,6 +18,7 @@ namespace WebApiTest2.Models
         public int Seller_ID { get; set; }
         public int Type_ID { get; set; }
         public bool Save { get; set; }
+        public bool Show_Home { get; set; }
         public List<string> Image_path { get; set; }
         public List<DpSize> SOfP { get; set; }
     }

@@ -1,0 +1,19 @@
+﻿@using WebApiTest2.Models
+@model Size
+@{
+    ViewBag.Title = "AddSize";
+}
+
+<h2>AddSize</h2>
+
+@using (Html.BeginForm("AddSize", "SizeView", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(C => C.size)
+        @Html.TextBoxFor(C => C.size, new { @class = "form-control" })
+        <p></p>
+        <p></p>
+    </div>
+    <input type="submit" value="Create" class="btn btn-success" />
+}

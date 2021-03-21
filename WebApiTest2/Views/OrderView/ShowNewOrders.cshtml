@@ -1,0 +1,55 @@
+﻿@using WebApiTest2.Models
+@model List<DataOrder>
+@{
+    ViewBag.Title = "ShowOrders";
+}
+<style>
+    table, td, th {
+        border: 1px solid black;
+        align-content: center;
+        padding: 10px 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aquamarine;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    tr:nth-of-type(odd) {
+        background-color: #ccc;
+    }
+</style>
+<h2>SHowOrder</h2>
+<table>
+    <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Phone</th>
+        <th class="text-center">Address</th>
+        <th class="text-center">price</th>
+        <th class="text-center">Delevry</th>
+        <th class="text-center">state</th>
+        <th class="text-center">Detailes</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td align="center"></td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Name_User)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Phone_User)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Address_User)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Order_Price)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.Order_Shapping)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.State)</td>
+            <td align="center"><button>@Html.ActionLink("Detalis", "ShowoneOrder", new { id = item.ID })</button></td>
+
+        </tr>
+    }
+</table>

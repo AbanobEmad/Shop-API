@@ -13,8 +13,10 @@ namespace WebApiTest2.Models
         public string Category_Name_AR { get; set; }
         public string Category_Name_EN { get; set; }
         public string Category_Image_Path { get; set; }
+        public bool Show_Home { get; set; }
         public ICollection<Category_Gender> category_Genders { get; set; }
         public ICollection<Product> products { get; set; }
+        public ICollection<CategorySize> categorySizes { get; set; }
 
     }
 }

@@ -18,13 +18,17 @@ namespace WebApiTest2.Controllers
         {
             try
             {
-                DateTime date = DateTime.Now;
+                DateTime date = DateTime.Now.Date;
                 string User_Id = User.Identity.GetUserId();
                 double Price_After = 0;
                 float shipping = 0;
                 List<Models.Cart> carts = db.Carts.Where(C => C.User_ID == User_Id).ToList();
                 Message_Order result_ = new Message_Order();
                 Models.Orders orders = new Orders();
+                DataUser dataUser = db.DataUsers.FirstOrDefault(U => U.User_ID == User_Id);
+                dataUser.Name_seconde = data.Name;
+                dataUser.Address = data.Address;
+                dataUser.Phone_Number = data.Phone;
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
@@ -104,9 +108,11 @@ namespace WebApiTest2.Controllers
                 dbAll.S_EN = o.Stuts_EN;
                 dbAll.S = o.Shipping;
                 dbAll.PA = o.PA;
-                dbAll.Date = o.Date;
+                dbAll.Date = o.Date.ToShortDateString();
                 dbAllOrders.Add(dbAll);
             }
+            dbAllOrders = dbAllOrders.OrderBy(X => X.Date).ToList();
+
             return Ok(dbAllOrders);
         }
         [Route("Update/Order")]
@@ -141,7 +147,7 @@ namespace WebApiTest2.Controllers
             dpProduct.Seller_ID = product.Seller_ID;
             dpProduct.Save = save;
             dpProduct.Type_ID = product.Type_ID;
-            dpProduct.Category_TD = product.Category_TD;
+            dpProduct.Category_TD = product.Category_ID;
             dpProduct.Description = product.Description;
             dpProduct.Discount = product.Discount;
             List<Product_Image_path> product_images = db.Product_Images.Where(I => I.Product_ID == product.ID).ToList();

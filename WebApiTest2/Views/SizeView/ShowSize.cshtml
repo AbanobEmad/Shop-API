@@ -1,0 +1,45 @@
+﻿@using WebApiTest2.Models
+@model List<Size>
+@{
+    ViewBag.Title = "ShowSize";
+}
+
+<h2>ShowSize</h2>
+<style>
+    table, td, th {
+        border: 1px solid black;
+        align-content: center;
+        padding: 10px 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aquamarine;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    tr:nth-of-type(odd) {
+        background-color: #ccc;
+    }
+</style>
+<table>
+    <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">Size</th>
+        <th class="text-center">Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td align="center">@Html.DisplayFor(modelItem => item.ID)</td>
+            <td align="center">@Html.DisplayFor(modelItem => item.size)</td>
+            <td align="center">@Html.ActionLink("Delete", "DeleteSize", new { id=item.ID})</td>
+        </tr>
+    }
+</table>
