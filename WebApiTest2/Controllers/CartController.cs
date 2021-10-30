@@ -40,8 +40,8 @@ namespace WebApiTest2.Controllers
                 }
                 if (c.Size_Id != null)
                 {
-                    Models.SizeOFProduct sizeOFProduct = db.SizeOFProducts.FirstOrDefault(S => S.ID == c.Size_Id);
-                    Models.Size size = db.Sizes.FirstOrDefault(S => S.ID == sizeOFProduct.Size_ID);
+                    Models.SizeOFProduct sizeOFProduct = db.SizeOFProducts.FirstOrDefault(S => S.Size_ID == c.Size_Id&&S.Product_ID==c.Product_ID);
+                    Models.Size size = db.Sizes.FirstOrDefault(S => S.ID == c.Size_Id);
                     dpCart.M_C = sizeOFProduct.Max_C;
                     dpCart.S_N = size.size;
                 }

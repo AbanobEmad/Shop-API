@@ -10,7 +10,7 @@ namespace WebApiTest2.Controllers
 {
     public class GenderController : ApiController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db  = new ApplicationDbContext();
         [Route("Gender")]
         public IHttpActionResult GetGender()
         {

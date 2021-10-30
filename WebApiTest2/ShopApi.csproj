@@ -285,6 +285,7 @@
     <Compile Include="Controllers\SellerViewController.cs" />
     <Compile Include="Controllers\SizeViewController.cs" />
     <Compile Include="Controllers\UploadImageController.cs" />
+    <Compile Include="Controllers\VersionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
